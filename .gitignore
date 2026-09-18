@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.env
+
+# Flask
+instance/
+.webassets-cache
+flask_session/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Generated map cache (large binary files, regenerated on server start)
+data/
+*.cache
+
+# Large data files (PDS4 radar data — download separately)
+*.img
+*.lbl
+*.xml
+*.qub
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# PDFs (optional - uncomment to exclude large PDF files)
+# papers/*.pdf
