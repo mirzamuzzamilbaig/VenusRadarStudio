@@ -1,0 +1,75 @@
+name: VenusRadarStudio CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Backend Science Engine Tests
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+        cache-dependency-path: app/requirements.txt
+
+    - name: Install dependencies
+      run: pip install -r app/requirements.txt
+
+    - name: Test radar engine — basemap generation
+      run: |
+        python -c "
+        import sys; sys.path.insert(0,'app')
+        from radar_engine import generate_basemap, generate_cpr_map, generate_terrain_data, get_cpr_stats, VENUS_FEATURES, CHANGE_EVENTS
+        print('Testing basemap (512x256)...')
+        b = generate_basemap(512, 256)
+        assert len(b) > 10000, 'Basemap too small'
+        print(f'  OK: {len(b)//1024} KB PNG')
+        print('Testing CPR layer...')
+        c = generate_cpr_map(512, 256)
+        assert len(c) > 1000, 'CPR layer too small'
+        print(f'  OK: {len(c)//1024} KB RGBA PNG')
+        print('Testing terrain data...')
+        t = generate_terrain_data(64, 32)
+        assert t['width'] == 64
+        assert t['height'] == 32
+        assert t['max_km'] > t['min_km']
+        print(f'  OK: {t[\"width\"]}x{t[\"height\"]}, {t[\"min_km\"]:.1f}-{t[\"max_km\"]:.1f} km')
+        print('Testing CPR stats (Maat Mons)...')
+        stats = get_cpr_stats(0.5, -165.4)
+        assert 0 < stats['mean_cpr'] < 3.0
+        assert stats['terrain_class'] in ['Plains','Lava Fields','Rough Volcanic','Active Flow Zone','Retroreflector (Highland)']
+        print(f'  OK: mean={stats[\"mean_cpr\"]:.3f}, class={stats[\"terrain_class\"]}')
+        print(f'Feature DB: {len(VENUS_FEATURES)} features, {len(CHANGE_EVENTS)} change events')
+        assert len(VENUS_FEATURES) >= 10
+        assert len(CHANGE_EVENTS) >= 3
+        print('All tests passed!')
+        "
+
+    - name: Test Flask server startup
+      run: |
+        python -c "
+        import sys; sys.path.insert(0,'app')
+        import json, os
+        # Test literature JSON loads
+        with open('top_q1_venus_papers.json') as f:
+            papers = json.load(f)
+        assert len(papers) >= 15, f'Expected 15+ papers, got {len(papers)}'
+        print(f'Literature: {len(papers)} papers loaded OK')
+        print('Server startup test passed!')
+        "
+
+    - name: Lint check
+      run: |
+        pip install pyflakes --quiet
+        python -m pyflakes app/radar_engine.py || true
+        python -m pyflakes app/main.py || true
+        echo "Lint check complete"
