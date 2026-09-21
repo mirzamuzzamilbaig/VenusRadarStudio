@@ -2,11 +2,14 @@
 
 **Interactive Venus Radar CPR & Volcanic Change Detection Platform**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?logo=github&style=for-the-badge)](https://mirzamuzzamilbaig.github.io/VenusRadarStudio/)
 [![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0-lightgrey?logo=flask)](https://flask.palletsprojects.com)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Venus](https://img.shields.io/badge/Planet-Venus-orange)](https://science.nasa.gov/venus/)
 
+> 🚀 **Live Interactive Web App:** [https://mirzamuzzamilbaig.github.io/VenusRadarStudio/](https://mirzamuzzamilbaig.github.io/VenusRadarStudio/)
+>
 > A full-stack interactive web application for Venus radar science — combining **Circular Polarization Ratio (CPR)** analysis, **multi-epoch volcanic change detection**, and an immersive space-themed dashboard grounded in peer-reviewed planetary science.
 
 ![VenusRadarStudio Dashboard](docs/preview.png)

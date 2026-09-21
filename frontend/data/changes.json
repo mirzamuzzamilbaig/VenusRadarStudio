@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -165.4,
+          0.5
+        ]
+      },
+      "properties": {
+        "name": "Maat Mons Vent Expansion",
+        "epoch1": "Magellan Cycle 1 (Feb 1990)",
+        "epoch2": "Magellan Cycle 2 (Oct 1991)",
+        "change_type": "Lava Flow Expansion",
+        "delta_backscatter_db": 3.2,
+        "area_km2": 2.2,
+        "confidence": "High",
+        "paper": "Herrick & Hensley 2023, Science 379(6629), 1205\u20131208"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.0,
+          12.0
+        ]
+      },
+      "properties": {
+        "name": "Atla Regio Backscatter Anomaly",
+        "epoch1": "Magellan Cycle 1 (1990)",
+        "epoch2": "Magellan Cycle 3 (1993)",
+        "change_type": "Surface Roughness Change",
+        "delta_backscatter_db": 1.8,
+        "area_km2": 15.0,
+        "confidence": "Medium",
+        "paper": "Ongoing Volcanic Activity on Venus, EPSC 2024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -147.0,
+          -46.0
+        ]
+      },
+      "properties": {
+        "name": "Idunn Thermal Signature",
+        "epoch1": "Magellan C2 (1991)",
+        "epoch2": "Magellan C3 (1993)",
+        "change_type": "Emissivity Change",
+        "delta_backscatter_db": 1.2,
+        "area_km2": 8.0,
+        "confidence": "Medium",
+        "paper": "Nature Astronomy 2024 \u2014 ongoing volcanic activity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0,
+          -10.0
+        ]
+      },
+      "properties": {
+        "name": "Phoebe Regio Anomaly",
+        "epoch1": "Magellan C1 (1990)",
+        "epoch2": "Magellan C2 (1991)",
+        "change_type": "Backscatter Enhancement",
+        "delta_backscatter_db": 0.9,
+        "area_km2": 45.0,
+        "confidence": "Low",
+        "paper": "Nature Astronomy 2024 \u2014 ongoing volcanic activity"
+      }
+    }
+  ]
+}

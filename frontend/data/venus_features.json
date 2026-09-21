@@ -1,0 +1,190 @@
+[
+  {
+    "id": "maat_mons",
+    "name": "Maat Mons",
+    "lat": 0.5,
+    "lon": -165.4,
+    "type": "Shield Volcano",
+    "height_km": 8.0,
+    "radius_deg": 4.0,
+    "cpr_peak": 1.25,
+    "active": true,
+    "description": "Largest volcano on Venus (~8 km high). Located in Atla Regio. Herrick & Hensley (2023) detected a vent shape change between Magellan C1 (1990) and C2 (1992) consistent with lava flow. First confirmed evidence of currently active volcanism on Venus.",
+    "papers": [
+      "Herrick & Hensley 2023, Science 379, 1205",
+      "Campbell & Campbell 2022, PSJ"
+    ]
+  },
+  {
+    "id": "sapas_mons",
+    "name": "Sapas Mons",
+    "lat": 8.5,
+    "lon": -171.7,
+    "type": "Shield Volcano",
+    "height_km": 4.0,
+    "radius_deg": 4.5,
+    "cpr_peak": 0.95,
+    "active": false,
+    "description": "Large shield volcano with extensive lava flow aprons. High Arecibo SCP backscatter consistent with rough aa-type flows. Paired with Maat Mons at Atla Regio.",
+    "papers": [
+      "Campbell & Campbell 2022, PSJ"
+    ]
+  },
+  {
+    "id": "ozza_mons",
+    "name": "Ozza Mons",
+    "lat": 4.5,
+    "lon": -159.0,
+    "type": "Shield Volcano",
+    "height_km": 5.0,
+    "radius_deg": 3.0,
+    "cpr_peak": 0.88,
+    "active": false,
+    "description": "Shield volcano in southern Atla Regio. Summit height ~5 km. Extensive radar-bright flow fields.",
+    "papers": [
+      "Campbell & Campbell 2022, PSJ"
+    ]
+  },
+  {
+    "id": "atla_regio",
+    "name": "Atla Regio",
+    "lat": 10.0,
+    "lon": -162.0,
+    "type": "Volcanic Rise",
+    "height_km": 4.0,
+    "radius_deg": 18.0,
+    "cpr_peak": 0.72,
+    "active": true,
+    "description": "Major volcanic rise hosting Maat Mons, Ozza Mons, and Sapas Mons. Driven by deep mantle plume volcanism (Campbell 2025, JGR Planets). VERITAS priority target for InSAR deformation mapping.",
+    "papers": [
+      "Evolution of Plume Volcanism at Atla Regio 2025, JGR Planets",
+      "Herrick & Hensley 2023, Science"
+    ]
+  },
+  {
+    "id": "maxwell_montes",
+    "name": "Maxwell Montes",
+    "lat": 65.0,
+    "lon": 3.0,
+    "type": "Mountain Range",
+    "height_km": 11.0,
+    "radius_deg": 5.5,
+    "cpr_peak": 1.85,
+    "active": false,
+    "description": "Highest point on Venus (11 km above MPR). Extreme radar retroreflection (CPR > 1.8) attributed to ferroelectric minerals (perovskite/pyrite) stable at high altitudes. Arecibo 12.6 cm data shows brightest feature on the planet.",
+    "papers": [
+      "Campbell & Campbell 2022, PSJ",
+      "The surface of Venus, 2003, Rep. Prog. Phys."
+    ]
+  },
+  {
+    "id": "beta_regio",
+    "name": "Beta Regio",
+    "lat": 25.0,
+    "lon": -78.0,
+    "type": "Volcanic Rise",
+    "height_km": 5.0,
+    "radius_deg": 14.0,
+    "cpr_peak": 0.88,
+    "active": true,
+    "description": "Rifted volcanic rise with active extension. Contains Theia Mons and Rhea Mons. Deep graben system. Phoebe Regio thermal anomaly detected nearby (VEx VIRTIS data).",
+    "papers": [
+      "Campbell & Campbell 2022, PSJ",
+      "Evidence of ongoing volcanic activity 2024, Nature Astronomy"
+    ]
+  },
+  {
+    "id": "theia_mons",
+    "name": "Theia Mons",
+    "lat": 23.0,
+    "lon": -78.0,
+    "type": "Shield Volcano",
+    "height_km": 4.5,
+    "radius_deg": 3.5,
+    "cpr_peak": 0.92,
+    "active": false,
+    "description": "Shield volcano at the heart of Beta Regio. Large summit caldera.",
+    "papers": [
+      "Campbell & Campbell 2022, PSJ"
+    ]
+  },
+  {
+    "id": "rhea_mons",
+    "name": "Rhea Mons",
+    "lat": -32.0,
+    "lon": -78.0,
+    "type": "Shield Volcano",
+    "height_km": 3.0,
+    "radius_deg": 3.0,
+    "cpr_peak": 0.72,
+    "active": false,
+    "description": "Southern Beta Regio shield volcano. Less radar-bright than Theia.",
+    "papers": [
+      "The surface of Venus, 2003, Rep. Prog. Phys."
+    ]
+  },
+  {
+    "id": "idunn_mons",
+    "name": "Idunn Mons",
+    "lat": -46.0,
+    "lon": -147.0,
+    "type": "Shield Volcano",
+    "height_km": 2.5,
+    "radius_deg": 2.5,
+    "cpr_peak": 0.88,
+    "active": true,
+    "description": "Volcano with anomalous thermal emissivity detected by Venus Express VIRTIS. Elevated surface temperatures suggest geologically recent volcanism. Cited in 2024 Nature Astronomy paper on ongoing Venus volcanic activity.",
+    "papers": [
+      "Evidence of ongoing volcanic activity 2024, Nature Astronomy",
+      "Ongoing Volcanic Activity on Venus 2024, EPSC"
+    ]
+  },
+  {
+    "id": "ishtar_terra",
+    "name": "Ishtar Terra",
+    "lat": 70.0,
+    "lon": 30.0,
+    "type": "Highland Plateau",
+    "height_km": 3.5,
+    "radius_deg": 20.0,
+    "cpr_peak": 0.65,
+    "active": false,
+    "description": "Northern polar highland containing Maxwell Montes. Lacus Tessera terrain \u2014 ancient, highly deformed crust. Area comparable to Australia. Surrounded by mountain belts.",
+    "papers": [
+      "Venus Evolution Through Time 2023, Space Sci. Rev.",
+      "The surface of Venus, 2003"
+    ]
+  },
+  {
+    "id": "aphrodite_terra",
+    "name": "Aphrodite Terra",
+    "lat": -10.0,
+    "lon": -30.0,
+    "type": "Highland",
+    "height_km": 4.0,
+    "radius_deg": 45.0,
+    "cpr_peak": 0.58,
+    "active": false,
+    "description": "Largest highland region on Venus (~10,000 km wide, size of Africa). Complex mix of rifting and volcanism. Contains Diana Chasma deep rift. Eastern section shows Arecibo CPR enhancement from rough terrain.",
+    "papers": [
+      "Venus Evolution Through Time 2023, Space Sci. Rev.",
+      "Future of Venus Research 2018, Space Sci. Rev."
+    ]
+  },
+  {
+    "id": "phoebe_regio",
+    "name": "Phoebe Regio",
+    "lat": -10.0,
+    "lon": -77.0,
+    "type": "Volcanic Region",
+    "height_km": 2.0,
+    "radius_deg": 10.0,
+    "cpr_peak": 0.78,
+    "active": true,
+    "description": "Volcanic region with evidence of recent emissivity anomalies. Thermal emission from VEx VIRTIS suggests warm surface features. VERITAS radar target for potential lava tube detection.",
+    "papers": [
+      "Evidence of ongoing volcanic activity 2024, Nature Astronomy",
+      "VERITAS Discovery Mission 2022, IEEE Aerospace"
+    ]
+  }
+]

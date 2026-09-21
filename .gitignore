@@ -24,8 +24,10 @@ flask_session/
 *.ipynb_checkpoints
 
 # Generated map cache (large binary files, regenerated on server start)
-data/
+/data/
 *.cache
+!docs/data/
+!frontend/data/
 
 # Large data files (PDS4 radar data — download separately)
 *.img
