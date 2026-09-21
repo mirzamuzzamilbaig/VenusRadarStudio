@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Arecibo Radar Maps of Venus from 1988 to 2020",
+    "year": 2022,
+    "journal": "The Planetary Science Journal",
+    "citations": 8,
+    "doi": "https://doi.org/10.3847/psj/ac4f43",
+    "oa_url": "https://iopscience.iop.org/article/10.3847/PSJ/ac4f43/pdf",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3847/psj/ac4f43"
+  },
+  {
+    "title": "Revealing the Mysteries of Venus: The DAVINCI Mission",
+    "year": 2022,
+    "journal": "The Planetary Science Journal",
+    "citations": 180,
+    "doi": "https://doi.org/10.3847/psj/ac63c2",
+    "oa_url": "https://iopscience.iop.org/article/10.3847/PSJ/ac63c2/pdf",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3847/psj/ac63c2"
+  },
+  {
+    "title": "Future of Venus Research and Exploration",
+    "year": 2018,
+    "journal": "Space Science Reviews",
+    "citations": 51,
+    "doi": "https://doi.org/10.1007/s11214-018-0528-z",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11214-018-0528-z.pdf",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1007/s11214-018-0528-z"
+  },
+  {
+    "title": "Surface changes observed on a Venusian volcano during the Magellan mission",
+    "year": 2023,
+    "journal": "Science",
+    "citations": 98,
+    "doi": "https://doi.org/10.1126/science.abm7735",
+    "oa_url": null,
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1126/science.abm7735"
+  },
+  {
+    "title": "The surface of Venus",
+    "year": 2003,
+    "journal": "Reports on Progress in Physics",
+    "citations": 132,
+    "doi": "https://doi.org/10.1088/0034-4885/66/10/r04",
+    "oa_url": "https://iopscience.iop.org/article/10.1088/0034-4885/66/10/R04/pdf",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1088/0034-4885/66/10/r04"
+  },
+  {
+    "title": "The nature and origin of Venusian canali",
+    "year": 1998,
+    "journal": "Journal of Geophysical Research Atmospheres",
+    "citations": 54,
+    "doi": "https://doi.org/10.1029/98je00243",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/98JE00243",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1029/98je00243"
+  },
+  {
+    "title": "Evidence of ongoing volcanic activity on Venus revealed by Magellan radar",
+    "year": 2024,
+    "journal": "Nature Astronomy",
+    "citations": 25,
+    "doi": "https://doi.org/10.1038/s41550-024-02272-1",
+    "oa_url": null,
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1038/s41550-024-02272-1"
+  },
+  {
+    "title": "Ongoing Volcanic Activity on Venus: Insights from Magellan Radar Data",
+    "year": 2024,
+    "journal": null,
+    "citations": 1,
+    "doi": "https://doi.org/10.5194/epsc2024-891",
+    "oa_url": "https://doi.org/10.5194/epsc2024-891",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.5194/epsc2024-891"
+  },
+  {
+    "title": "Evolution of Plume Volcanism at Atla Regio, Venus",
+    "year": 2025,
+    "journal": "Journal of Geophysical Research Planets",
+    "citations": 5,
+    "doi": "https://doi.org/10.1029/2024je008815",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2024JE008815",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1029/2024je008815"
+  },
+  {
+    "title": "POLARIZATION AND POLARIMETRY: A REVIEW",
+    "year": 2014,
+    "journal": "Journal of The Korean Astronomical Society",
+    "citations": 80,
+    "doi": "https://doi.org/10.5303/jkas.2014.47.1.15",
+    "oa_url": "http://koreascience.or.kr:80/article/JAKO201408739562367.pdf",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.5303/jkas.2014.47.1.15"
+  },
+  {
+    "title": "Recent Trend and Advance of Synthetic Aperture Radar with Selected Topics",
+    "year": 2013,
+    "journal": "Remote Sensing",
+    "citations": 288,
+    "doi": "https://doi.org/10.3390/rs5020716",
+    "oa_url": "https://www.mdpi.com/2072-4292/5/2/716/pdf?version=1403131634",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3390/rs5020716"
+  },
+  {
+    "title": "Hybrid Dual-Polarization Synthetic Aperture Radar",
+    "year": 2019,
+    "journal": "Remote Sensing",
+    "citations": 51,
+    "doi": "https://doi.org/10.3390/rs11131521",
+    "oa_url": "https://www.mdpi.com/2072-4292/11/13/1521/pdf?version=1565243510",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3390/rs11131521"
+  },
+  {
+    "title": "VERITAS (Venus Emissivity, Radio Science, InSAR, Topography, and Spectroscopy): A Discovery Mission",
+    "year": 2022,
+    "journal": "2022 IEEE Aerospace Conference (AERO)",
+    "citations": 75,
+    "doi": "https://doi.org/10.1109/aero53065.2022.9843269",
+    "oa_url": null,
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1109/aero53065.2022.9843269"
+  },
+  {
+    "title": "Was Venus the first habitable world of our solar system?",
+    "year": 2016,
+    "journal": "Geophysical Research Letters",
+    "citations": 310,
+    "doi": "https://doi.org/10.1002/2016gl069790",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/2016GL069790",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1002/2016gl069790"
+  },
+  {
+    "title": "The Determination of the Rotational State and Interior Structure of Venus with VERITAS",
+    "year": 2021,
+    "journal": "The Planetary Science Journal",
+    "citations": 55,
+    "doi": "https://doi.org/10.3847/psj/ac26c0",
+    "oa_url": "https://doi.org/10.3847/psj/ac26c0",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3847/psj/ac26c0"
+  },
+  {
+    "title": "VenSAR on EnVision: Taking earth observation radar to Venus",
+    "year": 2017,
+    "journal": "International Journal of Applied Earth Observation and Geoinformation",
+    "citations": 50,
+    "doi": "https://doi.org/10.1016/j.jag.2017.02.008",
+    "oa_url": "http://hdl.handle.net/10044/1/44367",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1016/j.jag.2017.02.008"
+  },
+  {
+    "title": "Venus Evolution Through Time: Key Science Questions, Selected Mission Concepts and Future Investigations",
+    "year": 2023,
+    "journal": "Space Science Reviews",
+    "citations": 55,
+    "doi": "https://doi.org/10.1007/s11214-023-00992-w",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11214-023-00992-w.pdf",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1007/s11214-023-00992-w"
+  },
+  {
+    "title": "The EnVision Mission to Venus",
+    "year": 2022,
+    "journal": null,
+    "citations": 4,
+    "doi": "https://doi.org/10.5194/egusphere-egu22-8391",
+    "oa_url": "https://doi.org/10.5194/egusphere-egu22-8391",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.5194/egusphere-egu22-8391"
+  }
+]

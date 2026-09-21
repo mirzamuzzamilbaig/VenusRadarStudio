@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VenusRadarStudio — Venus Radar Science Platform</title>
+  <meta name="description" content="Interactive Venus radar CPR and volcanic change detection platform. Explore Arecibo/Magellan radar data, polarimetry, and volcanic hotspots." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Three.js + OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ░░ Animated Starfield ░░ -->
+  <canvas id="starfield"></canvas>
+
+  <!-- ░░ Loading Overlay ░░ -->
+  <div id="loading-overlay">
+    <div class="loader-content">
+      <div class="loader-planet">
+        <div class="planet-ring"></div>
+        <div class="planet-core"></div>
+      </div>
+      <h2 class="loader-title">VenusRadarStudio</h2>
+      <p class="loader-sub">Initializing radar science platform…</p>
+      <div class="loader-bar-track"><div id="loader-bar" class="loader-bar"></div></div>
+      <p id="loader-status" class="loader-status">Connecting to server…</p>
+    </div>
+  </div>
+
+  <!-- ░░ Main App Shell ░░ -->
+  <div id="app" class="hidden">
+
+    <!-- ── TOP NAVBAR ── -->
+    <nav id="navbar">
+      <div class="nav-brand">
+        <span class="nav-icon">🪐</span>
+        <div>
+          <span class="nav-title">VenusRadarStudio</span>
+          <span class="nav-subtitle">Radar Polarimetry &amp; Volcanic Change Detection</span>
+        </div>
+      </div>
+
+      <div class="nav-indicators">
+        <div class="indicator" id="ind-mode">
+          <span class="dot dot-green"></span>
+          <span>Demo Mode</span>
+        </div>
+        <div class="indicator">
+          <span class="dot dot-blue"></span>
+          <span>Arecibo 12.6 cm</span>
+        </div>
+        <div class="indicator">
+          <span class="dot dot-orange"></span>
+          <span id="ind-features">12 Features</span>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <span class="nav-coord" id="nav-coord">Cursor: — , —</span>
+        <button class="btn-icon" id="btn-help" title="About">?</button>
+      </div>
+    </nav>
+
+    <!-- ── MAIN LAYOUT ── -->
+    <div id="main-layout">
+
+      <!-- LEFT SIDEBAR -->
+      <aside id="sidebar-left">
+        <div class="sidebar-section">
+          <h3 class="section-title">🗺 Map Layers</h3>
+          <label class="toggle-row">
+            <span class="toggle-label">Magellan Radar Basemap</span>
+            <label class="switch"><input type="checkbox" id="tog-basemap" checked /><span class="slider"></span></label>
+          </label>
+          <label class="toggle-row">
+            <span class="toggle-label">CPR Overlay</span>
+            <label class="switch"><input type="checkbox" id="tog-cpr" checked /><span class="slider"></span></label>
+          </label>
+          <label class="toggle-row">
+            <span class="toggle-label">Volcanic Hotspots</span>
+            <label class="switch"><input type="checkbox" id="tog-hotspots" checked /><span class="slider"></span></label>
+          </label>
+          <label class="toggle-row">
+            <span class="toggle-label">Change Detection</span>
+            <label class="switch"><input type="checkbox" id="tog-changes" /><span class="slider"></span></label>
+          </label>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="section-title">⚙ CPR Controls</h3>
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>CPR Threshold</span>
+              <span class="mono" id="lbl-cpr-thresh">0.50</span>
+            </div>
+            <input type="range" id="sld-cpr-thresh" class="range-input" min="0" max="200" value="50" />
+            <div class="slider-hint">Show features above this CPR value</div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Overlay Opacity</span>
+              <span class="mono" id="lbl-opacity">70%</span>
+            </div>
+            <input type="range" id="sld-opacity" class="range-input" min="0" max="100" value="70" />
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="section-title">🌋 Feature Filter</h3>
+          <div class="filter-chips" id="filter-chips">
+            <button class="chip chip-active" data-type="all">All</button>
+            <button class="chip" data-type="Shield Volcano">Volcano</button>
+            <button class="chip" data-type="Volcanic Rise">Rise</button>
+            <button class="chip" data-type="Highland">Highland</button>
+            <button class="chip" data-type="Mountain Range">Mountain</button>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="section-title">📡 CPR Scale</h3>
+          <div class="cpr-legend">
+            <div class="legend-row"><span class="swatch" style="background:#1a3a8c"></span><span>&lt; 0.2 — Smooth Plains</span></div>
+            <div class="legend-row"><span class="swatch" style="background:#00aaff"></span><span>0.2–0.5 — Lava Fields</span></div>
+            <div class="legend-row"><span class="swatch" style="background:#ffdd00"></span><span>0.5–0.8 — Rough Volcanic</span></div>
+            <div class="legend-row"><span class="swatch" style="background:#ff6600"></span><span>0.8–1.2 — Active Zone</span></div>
+            <div class="legend-row"><span class="swatch" style="background:#ffffff"></span><span>&gt; 1.2 — Retroreflector</span></div>
+          </div>
+        </div>
+
+        <div class="sidebar-section sidebar-section--last">
+          <h3 class="section-title">📌 Quick Jump</h3>
+          <div class="quick-jump" id="quick-jump">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAP CONTAINER -->
+      <div id="map-wrap">
+        <div id="venus-map"></div>
+
+        <!-- Feature info popup (floating) -->
+        <div id="feature-popup" class="hidden">
+          <button id="popup-close" class="popup-close">✕</button>
+          <div class="popup-badge" id="popup-badge">Shield Volcano</div>
+          <h2 class="popup-name" id="popup-name">Maat Mons</h2>
+          <div class="popup-meta">
+            <div class="meta-item">
+              <span class="meta-label">Height</span>
+              <span class="meta-val mono" id="popup-height">8.0 km</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Peak CPR</span>
+              <span class="meta-val mono cpr-val" id="popup-cpr">1.25</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Activity</span>
+              <span class="meta-val" id="popup-active">Active</span>
+            </div>
+          </div>
+          <p class="popup-desc" id="popup-desc"></p>
+          <div class="popup-papers" id="popup-papers"></div>
+          <button class="btn-primary btn-sm" id="popup-analyze">📊 Analyze CPR</button>
+        </div>
+
+        <!-- Map scale overlay -->
+        <div class="map-overlay-info">
+          <span>♦ Click any feature for details &amp; CPR analysis</span>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside id="sidebar-right">
+
+        <div class="sidebar-section">
+          <h3 class="section-title">📊 CPR Analysis</h3>
+          <div class="cpr-readout" id="cpr-readout">
+            <div class="readout-row">
+              <span class="readout-label">Mean CPR</span>
+              <span class="readout-val mono" id="val-mean">—</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label">Max CPR</span>
+              <span class="readout-val mono" id="val-max">—</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label">Std Dev</span>
+              <span class="readout-val mono" id="val-std">—</span>
+            </div>
+            <div class="readout-row">
+              <span class="readout-label">P95</span>
+              <span class="readout-val mono" id="val-p95">—</span>
+            </div>
+            <div class="readout-row readout-class">
+              <span class="readout-label">Class</span>
+              <span class="readout-val readout-class-val" id="val-class">Click feature or map</span>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="cpr-chart"></canvas>
+          </div>
+          <p class="interp-text" id="interp-text">Select a point on the map to see CPR distribution.</p>
+        </div>
+
+        <div class="sidebar-section sidebar-section--lit">
+          <h3 class="section-title">📚 Literature <span class="badge" id="lit-count">0</span></h3>
+          <div class="lit-scroll" id="lit-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- ── 3D TERRAIN STRIP ── -->
+    <div id="terrain-strip">
+      <div class="terrain-header">
+        <span>🗻 3D Venus Terrain — Circular Polarization Ratio Drape</span>
+        <div class="terrain-controls">
+          <label class="terrain-ctrl-label">Height ×<span id="lbl-exag">3</span></label>
+          <input type="range" id="sld-exag" class="range-input range-sm" min="1" max="10" value="3" />
+          <button class="btn-sm btn-ghost" id="btn-reset-cam">⟲ Reset</button>
+        </div>
+      </div>
+      <canvas id="terrain-canvas"></canvas>
+    </div>
+
+  </div><!-- end #app -->
+
+  <!-- ░░ About Modal ░░ -->
+  <div id="modal-about" class="modal hidden">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <h2>🪐 VenusRadarStudio</h2>
+      <p>An interactive radar science platform for Venus exploration research.</p>
+      <h4>Science Foundation</h4>
+      <ul>
+        <li>Campbell &amp; Campbell 2022 — Arecibo Radar Maps (PSJ)</li>
+        <li>Herrick &amp; Hensley 2023 — Magellan Volcanic Change (Science)</li>
+        <li>Nature Astronomy 2024 — Ongoing Volcanic Activity</li>
+        <li>VERITAS/EnVision mission planning documents</li>
+      </ul>
+      <h4>CPR Physics</h4>
+      <p>Circular Polarization Ratio (CPR = SCP/OCP) measures surface roughness at the radar wavelength. 
+         High CPR (&gt;0.7) indicates rough surfaces from recent volcanic flows or mountain terrain. 
+         Maxwell Montes achieves CPR &gt;1.5 via coherent backscatter retroreflection.</p>
+      <h4>Data Mode</h4>
+      <p>Running in <strong>Demo Mode</strong> — synthetic CPR arrays seeded with real Venus statistics. 
+         Connect Arecibo PDS4 files to switch to real-data mode.</p>
+    </div>
+  </div>
+
+  <!-- Main JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
